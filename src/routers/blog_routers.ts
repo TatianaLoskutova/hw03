@@ -16,3 +16,7 @@ blogRouters.post('/', async (req:Request, res: Response) => {
         res.sendStatus(404)
     }
 })
+// blogRouters.get('/', async (req:Request, res: Response) => {
+//     const allBlogs = await blogsRepository.findAllBlogs()
+//     res.status(200).send(allBlogs)
+// })
