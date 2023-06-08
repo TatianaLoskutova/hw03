@@ -9,7 +9,7 @@ blogRouters.get('/', async (req:Request, res: Response) => {
 })
 
 blogRouters.post('/', async (req:Request, res: Response) => {
-    const newBlog = await blogsRepository.createBlog(req.body.title)
+    const newBlog = await blogsRepository.createBlog(req.body.name, req.body.description, req.body.websiteUrl)
     if (newBlog) {
         res.status(201).send(newBlog)
     } else {
