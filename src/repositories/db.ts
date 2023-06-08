@@ -1,11 +1,13 @@
 import {BlogType} from '../types';
 import {MongoClient} from 'mongodb';
-
+import dotenv from 'dotenv';
+dotenv.config()
 
 // Connection URL
-const url = 'mongodb+srv://tanisha:Loskutidze1988@cluster0.c1g5djw.mongodb.net/?retryWrites=true&w=majority'
-console.log('url :', url)
-const client = new MongoClient(url)
+const mongoURI = process.env.MONGO_URL || 'mongodb://0.0.0.0:27017'
+console.log(process.env.MONGO_URL)
+
+const client = new MongoClient(mongoURI)
 const db = client.db('socialNetwork')
 
 export const blogsCollection = db.collection<BlogType>('blogs')
