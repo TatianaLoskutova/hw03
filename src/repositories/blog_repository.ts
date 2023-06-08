@@ -1,9 +1,9 @@
-import {blogsDataBase} from '../types';
+import {blogsDataBase, BlogType} from '../types';
+import {blogsCollection} from './db';
 
 export const blogsRepository = {
-    findAllBlogs() {
-        return blogsDataBase
-    },
-
+    async findAllBlogs(): Promise<BlogType[]> {
+        return blogsCollection.find({}).toArray()
+    }
 
 }
