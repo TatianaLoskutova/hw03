@@ -8,7 +8,7 @@ const mongoURI = process.env.MONGO_URL || 'mongodb://0.0.0.0:27017'
 console.log(process.env.MONGO_URL)
 
 const client = new MongoClient(mongoURI)
-const db = client.db('socialNetwork')
+const db = client.db()
 
 export const blogsCollection = db.collection<BlogType>('blogs')
 
