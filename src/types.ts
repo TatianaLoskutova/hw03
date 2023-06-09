@@ -1,3 +1,4 @@
+import {Request} from 'express';
 export type BlogType = {
     id: string
     name: string
@@ -15,6 +16,14 @@ export type PostType = {
     blogName: string
     createdAt: string
 }
+export type ErrorsMessageType = {
+    message: string;
+    field: string
+}
 
 export const blogsDataBase: BlogType[] = []
 export const postsDataBase: PostType[] = []
+
+export type RequestWithParams<T> = Request<T>
+export type RequestWithBody<T> = Request<{}, {},T>
+export type RequestWithParamsAndBody<T, B> = Request<T, {}, B>
